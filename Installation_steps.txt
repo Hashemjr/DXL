@@ -1,0 +1,13 @@
+We have installed a docker image for jenkins from the dockerhub
+
+1- Installing Docker (sudo apt install docker)
+
+2- Joining Docker Group: to avoid super user privilege (sudo usermod -aG docker $USER) then (new grp docker) 
+
+3- Pulling the jenkins image (docker pull jenkins/jenkins:lts)
+
+4- Running the image in Detach mode (docker run --name DXL -p 8080:8080 -p 50000:50000 --restart=on-failure -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts-jdk17)
+
+5- Accessing the Administration Password (docker exec DXL ls /var/jenkins_home/secrets/initialAdminPassword)
+
+6- Changing the Password from Jenkins GUI from the Configure Menu
